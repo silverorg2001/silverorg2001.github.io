@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="english">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>Programming Bits - misc</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Programming Bits</a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/java-generics-an-exploration.html">Java Generics - An Exploration</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2024-02-28T00:00:00+08:00">
+                Published: Wed 28 February 2024
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/andy-lee.html">Andy Lee</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+<p>tags: <a href="/tag/java.html">java</a> <a href="/tag/generics.html">generics</a> </p>
+</footer><!-- /.post-info --><h2>Java Generics - An Exploration</h2>
+<h3>Outline</h3>
+<p>This article explores Java Generics by working through a simple problem that involves Java interfaces.</p>
+<h3>Pre-requisites</h3>
+<p>Basic knowledge of Java is assumed. For those new to the language, do consult and learn from other resources available, e.g. <a href="https://www.youtube.com/watch?v=eIrMbAQSU34">Java Tutorial for Beginners</a>.</p>
+<h3>Reference</h3>
+<p><a href="https://deitel.com/java-how-to-program-11-e-early-objects-version/">Java How to Program, 11/e, Early Objects</a> Chapter 20</p>
+<p><img alt="Java How to Program, 11/e, Early Objects" src="https://deitel.com/wp-content/uploads/2020/01/java-how-to-program-11e-early-objects-version.jpg"></p>
+<h3>Introducing Generics</h3>
+<p>Available since Java SE 5.0 in 2004, Java Generics allow definitions of methods and classes that include parameters for type, commonly represented by T as in the following example. This can significantly reduce the amount of code that needs to be written for functionality that only differs in the data types are involved.
+s</p>
+<h3>Example</h3>
+<p><img src="/images/GenericsExample.png" alt="java-generics-example" style="border: 2px solid  gray;"></p>
+<h3>Note</h3>
+<ul>
+<li>generics only work with Java reference types</li>
+</ul>
+<h3>Problem for Exploration</h3>
+<p>The following is the problem we will be walking through for the rest of this article:</p>
+<ul>
+<li>
+<p>Part 1: Write java interface "Orderer" with method isLOE(). LOE stands for "is less than or equal to". The method takes two objects. It returns boolean value of true if the first object should be ordered before, or equal to the second.</p>
+</li>
+<li>
+<p>Part 2: Write java class with a static method "minOf()" which takes in an ArrayList and an Orderer. It should return the least Object in the collection according to the Orderer in Part 1.</p>
+</li>
+<li>
+<p>Part 3: Write test program that uses minOf to find the alphabetically first in a list of Strings, Integers and Do.</p>
+</li>
+</ul>
+<h4>Part 1</h4>
+<p><img src="/images/Part1_OrdererInterface.png" alt="java-orderer-interface" style="border: 2px solid  gray;"></p>
+<h4>Notes on Part 1</h4>
+<ul>
+<li>The type-parameter section specifies that T extends Comparable<T>, i.e. only objects of classes that implement interface Comparable<T> can be used with this method.</li>
+<li>Comparable<T> is known as the type parameter’s upper bound. By default, Object is the upper bound, meaning that an object of any type can be used.</li>
+<li>Type-parameter declarations that bound the parameter always use keyword extends regardless of whether the type parameter extends a class or implements an interface.</li>
+<li>A class that implements Comparable<T>  must implement compareTo() such that it compares the contents of two objects of that class and returns the comparison results.</li>
+<li>Interface Comparable<T>’s documentation explains that compareTo() must return 0 if the objects are equal, a negative integer if object1 is less than object2 or a positive integer if object1 is greater than object2.</li>
+</ul>
+<h4>Part 2</h4>
+<p><img src="/images/Part2_OrdererUtil.png" alt="java-class-with-minOf" style="border: 2px solid  gray;"></p>
+<h4>Part 3</h4>
+<p><img src="/images/Part3_OrdererTestA.png" alt="java-orderer-test-partA" style="border: 2px solid  gray;"></p>
+<p>continuation of preceding screenshot:</p>
+<p><img src="/images/Part3_OrdererTestB.png" alt="java-orderer-test-partB" style="border: 2px solid  gray;"></p>
+<p style="text-align: center;"><b>- End Of Article - </b></p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a rel="nofollow" href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
